@@ -173,10 +173,17 @@
       border: 1px solid #242936;
       border-radius: 16px;
       padding: 18px 20px;
+
       display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr auto;
+
+      grid-template-columns:
+        minmax(260px, 2fr)
+        130px
+        180px
+        150px;
+
       align-items: center;
-      gap: 18px;
+      gap: 20px;
     }
 
     .song-name {
@@ -193,13 +200,21 @@
     .meta {
       color: #c8ccd5;
       font-size: 14px;
+      text-align: center;
     }
 
     .time {
       color: #ff9bbc;
       font-weight: bold;
+      text-align: right;
+      white-space: nowrap;
     }
 
+    .time a {
+      display: inline-block;
+      margin: 2px 0;
+    }
+    
     .demo-tag {
       display: inline-block;
       font-size: 11px;
