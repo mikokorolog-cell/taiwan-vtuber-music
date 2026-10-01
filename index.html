@@ -168,6 +168,33 @@
       gap: 12px;
     }
 
+.song-header {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 2fr)
+    130px
+    180px
+    150px;
+
+  gap: 20px;
+  padding: 0 20px 10px;
+
+  color: #7f8796;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.song-header div:nth-child(2),
+.song-header div:nth-child(3) {
+  text-align: center;
+}
+
+.song-header div:nth-child(4) {
+  text-align: right;
+}
+
+    
     .song-card {
       background: #151820;
       border: 1px solid #242936;
@@ -273,6 +300,10 @@
         display: none;
       }
 
+      .song-header {
+        display: none;
+      }
+
       .stats {
         grid-template-columns: 1fr;
       }
@@ -375,7 +406,14 @@
       <h2>歌曲搜尋</h2>
       <p>搜尋歌名即可查看演唱紀錄</p>
     </div>
-
+    
+    <div class="song-header">
+      <div>歌曲</div>
+      <div>日期</div>
+      <div>歌回</div>
+      <div>播放</div>
+    </div>
+    
     <div id="songResults" class="results"></div>
 
   </section>
