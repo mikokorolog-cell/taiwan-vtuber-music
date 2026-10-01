@@ -440,33 +440,300 @@
 
 <script>
 
-  /*
-    這裡目前只是測試資料。
-    之後會換成真正的剎那歌回紀錄。
-  */
+  // =========================
+  // 歌回資料
+  // =========================
+
+  const streams = {
+
+    moon: {
+      date: "2026-09-25",
+      shortTitle: "月色下的伴睡歌回🌕💤",
+      title: "〖 粿粿唱 〗月色下的伴睡歌回🌕💤溫柔的歌聲伴你入睡🫂｜降落歡迎｜初見歡迎｜",
+      videoId: "0Y07GpGMNdM"
+    },
+
+    anime: {
+      date: "2026-09-18",
+      shortTitle: "🔥動漫歌回🔥",
+      title: "〖 粿粿唱 〗🔥動漫歌回🔥我的木吉他就是我的專武✨｜降落歡迎｜初見歡迎｜",
+      videoId: "-sI3KgHtQF4"
+    },
+
+    summer: {
+      date: "2026-09-13",
+      shortTitle: "抓住夏日的尾巴🍹",
+      title: "〖 粿粿唱 〗最近開始變涼了⛅一起來抓住夏日的尾巴🍹｜降落歡迎｜初見歡迎｜",
+      videoId: "tIOPmv3lb2E"
+    }
+
+  };
+
+
+  // =========================
+  // 演唱紀錄
+  // 同一場同一首歌的 P1 / P2
+  // 合併為一筆演唱紀錄
+  // =========================
 
   const songs = [
+
+    // ===== 2026/09/25 =====
+
     {
-      song: "唯一",
-      original: "告五人",
-      date: "測試日期",
-      stream: "測試歌回 A",
-      time: "00:00:00"
+      song: "Fly Me To The Moon",
+      original: "Frank Sinatra",
+      streamId: "moon",
+      parts: [
+        { time: "00:16:14", seconds: 974 }
+      ]
     },
+
     {
-      song: "KING",
-      original: "Kanaria",
-      date: "測試日期",
-      stream: "測試歌回 B",
-      time: "00:00:00"
+      song: "城裡的月光",
+      original: "許美靜",
+      streamId: "moon",
+      parts: [
+        { time: "00:23:00", seconds: 1380 }
+      ]
     },
+
     {
-      song: "歌曲範例",
-      original: "原唱範例",
-      date: "測試日期",
-      stream: "測試歌回 C",
-      time: "00:00:00"
+      song: "三日月",
+      original: "絢香",
+      streamId: "moon",
+      parts: [
+        { time: "00:31:06", seconds: 1866 }
+      ]
+    },
+
+    {
+      song: "旅行的意義",
+      original: "陳綺貞",
+      streamId: "moon",
+      parts: [
+        { time: "00:42:06", seconds: 2526 }
+      ]
+    },
+
+    {
+      song: "月牙灣",
+      original: "F.I.R.",
+      streamId: "moon",
+      parts: [
+        { time: "00:51:11", seconds: 3071 }
+      ]
+    },
+
+    {
+      song: "Autumn Leaves",
+      original: "Nat King Cole",
+      streamId: "moon",
+      parts: [
+        { time: "01:02:17", seconds: 3737 }
+      ]
+    },
+
+    {
+      song: "葉子",
+      original: "阿桑",
+      streamId: "moon",
+      parts: [
+        { time: "01:10:54", seconds: 4254 }
+      ]
+    },
+
+    {
+      song: "月亮代表我的心",
+      original: "鄧麗君",
+      streamId: "moon",
+      parts: [
+        { time: "01:25:36", seconds: 5136 }
+      ]
+    },
+
+    {
+      song: "晚餐歌",
+      original: "tuki.",
+      streamId: "moon",
+      parts: [
+        { time: "01:37:24", seconds: 5844 }
+      ]
+    },
+
+
+    // ===== 2026/09/18 =====
+
+    {
+      song: "おはよう。",
+      original: "Keno",
+      streamId: "anime",
+      parts: [
+        { time: "00:21:43", seconds: 1303 }
+      ]
+    },
+
+    {
+      song: "Rolling star",
+      original: "YUI",
+      streamId: "anime",
+      parts: [
+        { time: "00:29:37", seconds: 1777 }
+      ]
+    },
+
+    {
+      song: "LIFE",
+      original: "YUI",
+      streamId: "anime",
+      parts: [
+        { label: "P1", time: "00:36:07", seconds: 2167 },
+        { label: "P2", time: "00:42:02", seconds: 2522 }
+      ]
+    },
+
+    {
+      song: "ブルーバード",
+      original: "いきものがかり",
+      streamId: "anime",
+      parts: [
+        { time: "00:50:43", seconds: 3043 }
+      ]
+    },
+
+    {
+      song: "めざせポケモンマスター",
+      original: "松本梨香",
+      streamId: "anime",
+      note: "練習",
+      parts: [
+        { time: "01:11:04", seconds: 4264 }
+      ]
+    },
+
+    {
+      song: "シルエット",
+      original: "KANA-BOON",
+      streamId: "anime",
+      parts: [
+        { time: "01:15:12", seconds: 4512 }
+      ]
+    },
+
+    {
+      song: "サムライハート",
+      original: "SPYAIR",
+      streamId: "anime",
+      parts: [
+        { label: "P1", time: "01:33:48", seconds: 5628 },
+        { label: "P2", time: "02:12:54", seconds: 7974 }
+      ]
+    },
+
+    {
+      song: "HANABI",
+      original: "いきものがかり",
+      streamId: "anime",
+      parts: [
+        { time: "01:42:52", seconds: 6172 }
+      ]
+    },
+
+    {
+      song: "Home Sweet Home",
+      original: "YUKI",
+      streamId: "anime",
+      parts: [
+        { time: "01:50:31", seconds: 6631 }
+      ]
+    },
+
+    {
+      song: "Let it Out",
+      original: "福原美穗",
+      streamId: "anime",
+      parts: [
+        { time: "01:57:28", seconds: 7048 }
+      ]
+    },
+
+    {
+      song: "Butter-Fly",
+      original: "和田光司",
+      streamId: "anime",
+      parts: [
+        { time: "02:05:12", seconds: 7512 }
+      ]
+    },
+
+
+    // ===== 2026/09/13 =====
+
+    {
+      song: "晴天",
+      original: "周杰倫",
+      streamId: "summer",
+      parts: [
+        { time: "00:26:47", seconds: 1607 }
+      ]
+    },
+
+    {
+      song: "想和你看五月的晚霞",
+      original: "陳華",
+      streamId: "summer",
+      parts: [
+        { time: "00:33:30", seconds: 2010 }
+      ]
+    },
+
+    {
+      song: "少女レイ",
+      original: "みきとP feat. 初音ミク",
+      streamId: "summer",
+      parts: [
+        { label: "P1", time: "00:40:37", seconds: 2437 },
+        { label: "P2", time: "00:48:20", seconds: 2900 }
+      ]
+    },
+
+    {
+      song: "國境之南",
+      original: "范逸臣",
+      streamId: "summer",
+      parts: [
+        { time: "00:58:58", seconds: 3538 }
+      ]
+    },
+
+    {
+      song: "変わらないもの",
+      original: "奥華子",
+      streamId: "summer",
+      parts: [
+        { time: "01:03:10", seconds: 3790 }
+      ]
+    },
+
+    {
+      song: "夏霞",
+      original: "あたらよ",
+      streamId: "summer",
+      note: "ft. 霸丸",
+      parts: [
+        { time: "01:21:02", seconds: 4862 }
+      ]
+    },
+
+    {
+      song: "secret base ～君がくれたもの～",
+      original: "ZONE",
+      streamId: "summer",
+      parts: [
+        { time: "01:33:28", seconds: 5608 }
+      ]
     }
+
   ];
 
 
@@ -474,12 +741,51 @@
   const songResults = document.getElementById("songResults");
 
 
+  // =========================
+  // 自動統計
+  // =========================
+
+  const statNumbers = document.querySelectorAll(".stat-number");
+
+  const streamCount = Object.keys(streams).length;
+
+  const performanceCount = songs.length;
+
+  const uniqueSongCount = new Set(
+    songs.map(item =>
+      item.song.toLowerCase() + "|" + item.original.toLowerCase()
+    )
+  ).size;
+
+
+  if (statNumbers.length >= 3) {
+    statNumbers[0].textContent = streamCount;
+    statNumbers[1].textContent = performanceCount;
+    statNumbers[2].textContent = uniqueSongCount;
+  }
+
+
+  // =========================
+  // 搜尋與顯示
+  // =========================
+
   function renderSongs(keyword = "") {
 
-    const filtered = songs.filter(item =>
-      item.song.toLowerCase().includes(keyword.toLowerCase()) ||
-      item.original.toLowerCase().includes(keyword.toLowerCase())
-    );
+    const search = keyword.trim().toLowerCase();
+
+    const filtered = songs.filter(item => {
+
+      const stream = streams[item.streamId];
+
+      return (
+        item.song.toLowerCase().includes(search) ||
+        item.original.toLowerCase().includes(search) ||
+        stream.shortTitle.toLowerCase().includes(search) ||
+        stream.title.toLowerCase().includes(search) ||
+        stream.date.includes(search)
+      );
+
+    });
 
 
     if (filtered.length === 0) {
@@ -491,39 +797,72 @@
     }
 
 
-    songResults.innerHTML = filtered.map(item => `
+    songResults.innerHTML = filtered.map(item => {
 
-      <div class="song-card">
+      const stream = streams[item.streamId];
 
-        <div>
-          <div class="song-name">
-            ${item.song}
-            <span class="demo-tag">DEMO</span>
+
+      const timeLinks = item.parts.map(part => {
+
+        const label = part.label
+          ? part.label + " "
+          : "";
+
+        return `
+          <a
+            href="https://www.youtube.com/watch?v=${stream.videoId}&t=${part.seconds}s"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ${label}${part.time} ▶
+          </a>
+        `;
+
+      }).join("<br>");
+
+
+      const note = item.note
+        ? `<span class="demo-tag">${item.note}</span>`
+        : "";
+
+
+      return `
+
+        <div class="song-card">
+
+          <div>
+
+            <div class="song-name">
+              ${item.song}
+              ${note}
+            </div>
+
+            <div class="song-original">
+              原唱：${item.original}
+            </div>
+
           </div>
 
-          <div class="song-original">
-            原唱：${item.original}
+
+          <div class="meta">
+            ${stream.date}
           </div>
+
+
+          <div class="meta" title="${stream.title}">
+            ${stream.shortTitle}
+          </div>
+
+
+          <div class="time">
+            ${timeLinks}
+          </div>
+
         </div>
 
+      `;
 
-        <div class="meta">
-          ${item.date}
-        </div>
-
-
-        <div class="meta">
-          ${item.stream}
-        </div>
-
-
-        <div class="time">
-          ${item.time} ▶
-        </div>
-
-      </div>
-
-    `).join("");
+    }).join("");
 
   }
 
