@@ -7,6 +7,12 @@
 
   <title>PROFILE｜剎那 SETSUNA</title>
 
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
   <style>
     body {
       margin: 0;
@@ -178,23 +184,35 @@
     .platform-links {
       display: flex;
       align-items: center;
-      gap: 28px;
       flex-wrap: wrap;
-      margin-top: 18px;
+      gap: 16px;
+      margin-top: 20px;
     }
 
     .platform-links a {
-      color: #f5f5f5;
-      font-size: 18px;
-      font-weight: 700;
+      width: 52px;
+      height: 52px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid #4a4f5c;
+      border-radius: 50%;
+
+      color: #c5cad3;
+      font-size: 21px;
       text-decoration: none;
+
       transition: 0.2s ease;
     }
 
     .platform-links a:hover {
       color: #ff7aa8;
+      border-color: #ff7aa8;
+      transform: translateY(-2px);
     }
-    
+
     /* MOBILE */
     @media (max-width: 760px) {
       .nav {
@@ -263,6 +281,7 @@
 
     <div class="profile-card">
 
+      <!-- PROFILE HERO -->
       <section class="profile-hero">
 
         <h1>
@@ -325,17 +344,23 @@
 
               <div class="info-row">
                 <div class="info-title">暱稱</div>
-                <div class="info-value">站長／那那／碗粿</div>
+                <div class="info-value">
+                  站長／那那／碗粿
+                </div>
               </div>
 
               <div class="info-row">
                 <div class="info-title">身高</div>
-                <div class="info-value">待補</div>
+                <div class="info-value">
+                  待補
+                </div>
               </div>
 
               <div class="info-row">
                 <div class="info-title">生日</div>
-                <div class="info-value">8／20</div>
+                <div class="info-value">
+                  8／20
+                </div>
               </div>
 
               <div class="info-row">
@@ -385,51 +410,66 @@
 
               <div class="info-row">
                 <div class="info-title">粉絲名</div>
-                <div class="info-value">粉粿</div>
+                <div class="info-value">
+                  粉粿
+                </div>
               </div>
 
             </div>
 
-                    </section>
+          </section>
 
           <!-- OFFICIAL LINKS -->
           <section class="profile-section">
 
             <p class="section-label">OFFICIAL LINKS</p>
+
             <h2>官方連結</h2>
 
             <div class="platform-links">
 
+              <!-- YouTube -->
               <a
                 href="https://www.youtube.com/@setsuna_wague"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="YouTube"
+                title="YouTube"
               >
-                YOUTUBE
+                <i class="fa-brands fa-youtube"></i>
               </a>
 
+              <!-- Twitch -->
               <a
                 href="https://www.twitch.tv/setsuna_wague"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Twitch"
+                title="Twitch"
               >
-                Twitch
+                <i class="fa-brands fa-twitch"></i>
               </a>
 
+              <!-- X -->
               <a
                 href="https://x.com/SETSUNA_VII"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="X"
+                title="X"
               >
-                X
+                <i class="fa-brands fa-x-twitter"></i>
               </a>
 
+              <!-- Discord -->
               <a
                 href="https://discord.com/invite/Y9v7zZbhNj"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Discord"
+                title="Discord"
               >
-                Discord
+                <i class="fa-brands fa-discord"></i>
               </a>
 
             </div>
