@@ -56,42 +56,84 @@
     }
 
     .page-label {
+      display: inline-block;
+      margin-bottom: 18px;
       color: #ff7aa8;
       font-size: 12px;
       font-weight: bold;
       letter-spacing: 2px;
     }
 
-    h1 {
-      font-size: 52px;
-      margin: 12px 0 8px;
-    }
-
-    h1 span {
-      color: #ff7aa8;
-      font-size: 24px;
-    }
-
-    .subtitle {
-      color: #8f96a3;
-      margin-bottom: 50px;
-    }
-
     .profile-card {
+      overflow: hidden;
       background: #151820;
       border: 1px solid #242936;
       border-radius: 22px;
-      padding: 42px;
+    }
+
+    /* PROFILE HERO */
+    .profile-hero {
+      padding: 56px 48px;
+    }
+
+    .profile-label {
+      margin: 0 0 18px;
+      color: #ff7aa8;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+    }
+
+    .profile-hero h1 {
+      margin: 0;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .profile-hero h1 span {
+      color: #ff7aa8;
+      font-size: inherit;
+    }
+
+    .profile-role {
+      margin: 20px 0 0;
+      color: #ff7aa8;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .profile-intro {
+      margin: 24px 0 0;
+      max-width: 680px;
+      color: #c5cad3;
+      font-size: 17px;
+      line-height: 1.9;
     }
 
     @media (max-width: 760px) {
+      .nav {
+        align-items: flex-start;
+        gap: 18px;
+      }
+
       .nav-links {
         gap: 12px;
         flex-wrap: wrap;
+        justify-content: flex-end;
       }
 
-      h1 {
-        font-size: 38px;
+      main {
+        padding: 50px 20px;
+      }
+
+      .profile-hero {
+        padding: 40px 28px;
+      }
+
+      .profile-intro {
+        font-size: 16px;
       }
     }
   </style>
@@ -99,43 +141,55 @@
 
 <body>
 
-<header>
-  <div class="nav">
+  <header>
+    <div class="nav">
 
-    <div class="logo">
-      TW <span>VTuber Music</span>
+      <div class="logo">
+        TW <span>VTuber Music</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="profile.html" class="active">PROFILE</a>
+        <a href="index.html#songs">MUSIC</a>
+        <a href="index.html#streams">STREAMS</a>
+        <a href="index.html">MILESTONES</a>
+        <a href="index.html">MERCH</a>
+        <a href="index.html#about">ABOUT</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <span class="page-label">VTUBER PROFILE</span>
+
+    <div class="profile-card">
+
+      <section class="profile-hero">
+
+        <p class="profile-label">PROFILE</p>
+
+        <h1>
+          剎那 <span>SETSUNA</span>
+        </h1>
+
+        <p class="profile-role">
+          Vsinger
+        </p>
+
+        <p class="profile-intro">
+          魂を歌声に乗せる Vsinger。<br>
+          七號空間站的站長，以吉他自彈自唱與音樂活動為主。
+        </p>
+
+      </section>
+
     </div>
 
-    <nav class="nav-links">
-      <a href="index.html">HOME</a>
-      <a href="profile.html" class="active">PROFILE</a>
-      <a href="index.html#songs">MUSIC</a>
-      <a href="index.html#streams">STREAMS</a>
-      <a href="index.html">MILESTONES</a>
-      <a href="index.html">MERCH</a>
-      <a href="index.html#about">ABOUT</a>
-    </nav>
-
-  </div>
-</header>
-
-<main>
-
-  <span class="page-label">VTUBER PROFILE</span>
-
-  <h1>
-    剎那 <span>SETSUNA</span>
-  </h1>
-
-  <p class="subtitle">
-    Profile｜個人簡介
-  </p>
-
-  <div class="profile-card">
-    剎那的個人資料將整理於此。
-  </div>
-
-</main>
+  </main>
 
 </body>
+
 </html>
