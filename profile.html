@@ -55,15 +55,6 @@
       padding: 80px 24px;
     }
 
-    .page-label {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: #ff7aa8;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
     .profile-card {
       overflow: hidden;
       background: #151820;
@@ -74,6 +65,7 @@
     /* PROFILE HERO */
     .profile-hero {
       padding: 56px 48px;
+      border-bottom: 1px solid #242936;
     }
 
     .profile-label {
@@ -97,11 +89,77 @@
     }
 
     .profile-intro {
-      margin: 24px 0 0;
+      margin: 26px 0 0;
       max-width: 680px;
       color: #c5cad3;
       font-size: 17px;
       line-height: 1.9;
+    }
+
+    /* PROFILE CONTENT */
+    .profile-content {
+      padding: 48px;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 28px;
+    }
+
+    .section-label {
+      margin: 0 0 10px;
+      color: #ff7aa8;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+    }
+
+    .profile-section h2 {
+      margin: 0 0 22px;
+      font-size: 28px;
+    }
+
+    .profile-section p {
+      margin: 0;
+      color: #c5cad3;
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .info-box {
+      background: #11141b;
+      border: 1px solid #242936;
+      border-radius: 16px;
+      padding: 26px;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid #242936;
+    }
+
+    .info-row:first-child {
+      padding-top: 0;
+    }
+
+    .info-row:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .info-title {
+      color: #8f96a3;
+      font-size: 14px;
+    }
+
+    .info-value {
+      color: #f5f5f5;
+      font-size: 15px;
+      line-height: 1.6;
     }
 
     @media (max-width: 760px) {
@@ -126,6 +184,14 @@
 
       .profile-intro {
         font-size: 16px;
+      }
+
+      .profile-content {
+        padding: 32px 28px;
+      }
+
+      .profile-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -155,8 +221,6 @@
 
   <main>
 
-    <span class="page-label">VTUBER PROFILE</span>
-
     <div class="profile-card">
 
       <section class="profile-hero">
@@ -173,6 +237,69 @@
         </p>
 
       </section>
+
+      <div class="profile-content">
+
+        <div class="profile-grid">
+
+          <section class="profile-section">
+
+            <p class="section-label">ABOUT</p>
+            <h2>關於剎那</h2>
+
+            <p>
+              我是七號空間站的站長「剎那」！<br>
+              也可以叫我「站長」、「那那」或是「碗粿」。<br><br>
+              是一位以吉他自彈自唱為主的 Vsinger，
+              透過歌聲與音樂展開屬於七號空間站的旅程。
+            </p>
+
+          </section>
+
+          <section class="profile-section">
+
+            <p class="section-label">BASIC PROFILE</p>
+            <h2>基本資料</h2>
+
+            <div class="info-box">
+
+              <div class="info-row">
+                <div class="info-title">名稱</div>
+                <div class="info-value">剎那 SETSUNA</div>
+              </div>
+
+              <div class="info-row">
+                <div class="info-title">定位</div>
+                <div class="info-value">Vsinger</div>
+              </div>
+
+              <div class="info-row">
+                <div class="info-title">暱稱</div>
+                <div class="info-value">站長／那那／碗粿</div>
+              </div>
+
+              <div class="info-row">
+                <div class="info-title">粉絲名</div>
+                <div class="info-value">粉粿</div>
+              </div>
+
+              <div class="info-row">
+                <div class="info-title">活動形式</div>
+                <div class="info-value">個人勢</div>
+              </div>
+
+              <div class="info-row">
+                <div class="info-title">Hashtag</div>
+                <div class="info-value">#魂を歌う剎那</div>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+      </div>
 
     </div>
 
