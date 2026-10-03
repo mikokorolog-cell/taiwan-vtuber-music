@@ -294,7 +294,68 @@
       padding: 32px 20px;
       font-size: 13px;
     }
+    .profile-card {
+      background: #151820;
+      border: 1px solid #242936;
+      border-radius: 22px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
 
+    .profile-label {
+      display: inline-block;
+      color: #ff7aa8;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .profile-main h3 {
+      font-size: 32px;
+      margin: 0 0 16px;
+    }
+
+    .profile-main h3 span {
+      color: #ff7aa8;
+      font-size: 18px;
+      margin-left: 8px;
+    }
+
+    .profile-description {
+      color: #c8ccd5;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .profile-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .profile-info div {
+      background: #0d0f14;
+      border: 1px solid #242936;
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .profile-info span {
+      display: block;
+      color: #7f8796;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .profile-info strong {
+      color: #f5f5f5;
+      font-size: 15px;
+    }
+    
     @media (max-width: 760px) {
       .nav-links {
         display: none;
@@ -319,6 +380,14 @@
       .hero {
         padding-top: 55px;
       }
+
+      .profile-card {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-info {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -331,17 +400,20 @@
       TW <span>VTuber Music</span>
     </div>
 
-    <nav class="nav-links">
-      <a href="#songs">歌曲搜尋</a>
-      <a href="#streams">歌回</a>
-      <a href="#music">Original / Cover</a>
-      <a href="#about">關於本站</a>
-    </nav>
+  <nav class="nav-links">
+  <a href="#home">HOME</a>
+  <a href="#profile">PROFILE</a>
+  <a href="#songs">MUSIC</a>
+  <a href="#streams">STREAMS</a>
+  <a href="#milestones">MILESTONES</a>
+  <a href="#merch">MERCH</a>
+  <a href="#about">ABOUT</a>
+</nav>
   </div>
 </header>
 
 
-<section class="hero">
+<section class="hero" id="home">
 
   <div class="badge">
     UNOFFICIAL FAN ARCHIVE
@@ -399,7 +471,50 @@
 
   </section>
 
+<section class="section" id="profile">
 
+  <div class="section-title">
+    <h2>Profile</h2>
+    <p>關於剎那</p>
+  </div>
+
+  <div class="profile-card">
+
+    <div class="profile-main">
+      <span class="profile-label">VTUBER PROFILE</span>
+      <h3>剎那 <span>SETSUNA</span></h3>
+
+      <p class="profile-description">
+        剎那的非官方粉絲資料整理頁。
+        這裡將收錄公開的角色資訊、活動紀錄與相關連結。
+      </p>
+    </div>
+
+    <div class="profile-info">
+      <div>
+        <span>所屬</span>
+        <strong>資料整理中</strong>
+      </div>
+
+      <div>
+        <span>初配信</span>
+        <strong>資料整理中</strong>
+      </div>
+
+      <div>
+        <span>生日</span>
+        <strong>資料整理中</strong>
+      </div>
+
+      <div>
+        <span>主要平台</span>
+        <strong>YouTube</strong>
+      </div>
+    </div>
+
+  </div>
+
+</section>
   <section class="section" id="songs">
 
     <div class="section-title">
