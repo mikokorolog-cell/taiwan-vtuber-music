@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +18,23 @@
       color: #f5f5f5;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
     header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(13, 15, 20, 0.95);
       border-bottom: 1px solid #242833;
-      background: #0d0f14;
+      backdrop-filter: blur(10px);
     }
 
     .nav {
@@ -29,23 +42,25 @@
       margin: auto;
       padding: 18px 24px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .logo {
+      font-size: 20px;
       font-weight: 700;
+    }
+
+    .logo span {
+      color: #ff7aa8;
     }
 
     .nav-links {
       display: flex;
-      gap: 24px;
-    }
-
-    .nav-links a {
-      color: #c8ccd5;
-      text-decoration: none;
+      gap: 22px;
       font-size: 14px;
+      color: #c8ccd6;
     }
 
     .nav-links a:hover,
@@ -96,7 +111,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      margin-bottom: 52px;
+      margin-bottom: 56px;
     }
 
     .stat-card {
@@ -108,7 +123,6 @@
 
     .stat-number {
       margin-bottom: 8px;
-      color: #f5f5f5;
       font-size: 30px;
       font-weight: 700;
     }
@@ -118,49 +132,26 @@
       font-size: 14px;
     }
 
-    /* SEARCH */
-    .search-section {
-      margin-bottom: 36px;
-    }
-
-    .search-header {
+    /* STREAM CARDS */
+    .section-title {
       display: flex;
-      justify-content: space-between;
       align-items: end;
+      justify-content: space-between;
       gap: 20px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    .search-header h2 {
+    .section-title h2 {
       margin: 0;
       font-size: 28px;
     }
 
-    .search-hint {
-      color: #8f96a3;
+    .section-title p {
+      margin: 0;
+      color: #858b98;
       font-size: 14px;
     }
 
-    .stream-search {
-      width: 100%;
-      padding: 16px 20px;
-      background: #151820;
-      border: 1px solid #343946;
-      border-radius: 14px;
-      outline: none;
-      color: #f5f5f5;
-      font-size: 16px;
-    }
-
-    .stream-search:focus {
-      border-color: #ff7aa8;
-    }
-
-    .stream-search::placeholder {
-      color: #707684;
-    }
-
-    /* STREAM LIST */
     .stream-list {
       display: grid;
       gap: 26px;
@@ -173,12 +164,13 @@
       background: #151820;
       border: 1px solid #242936;
       border-radius: 20px;
-      transition: 0.2s ease;
+      transition: 0.25s ease;
     }
 
     .stream-card:hover {
-      border-color: #3a3f4c;
-      transform: translateY(-2px);
+      border-color: #ff7aa8;
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
     }
 
     .thumbnail-link {
@@ -202,7 +194,7 @@
     }
 
     .stream-date {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       color: #ff7aa8;
       font-size: 15px;
       font-weight: 700;
@@ -214,43 +206,183 @@
       line-height: 1.5;
     }
 
-    .stream-actions {
-      margin-top: 24px;
+    .stream-count {
+      margin-top: 10px;
+      color: #8f96a3;
+      font-size: 14px;
     }
 
-    .stream-link {
+    .stream-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .stream-link,
+    .stream-filter-button,
+    .reset-button {
       display: inline-block;
-      padding: 11px 20px;
+      padding: 10px 18px;
       border: 1px solid #ff7aa8;
       border-radius: 999px;
+      background: transparent;
       color: #ff7aa8;
       font-size: 14px;
       font-weight: 700;
-      text-decoration: none;
+      cursor: pointer;
       transition: 0.2s ease;
     }
 
-    .stream-link:hover {
+    .stream-link:hover,
+    .stream-filter-button:hover,
+    .reset-button:hover {
       background: #ff7aa8;
       color: #0d0f14;
     }
 
-    .empty-state {
-      display: none;
-      padding: 50px 20px;
-      border: 1px dashed #343946;
-      border-radius: 18px;
+    /* SONG ARCHIVE */
+    .song-archive {
+      margin-top: 64px;
+      scroll-margin-top: 90px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .search-box {
+      flex: 1;
+      width: 100%;
+      padding: 16px 20px;
+      border: 1px solid #343946;
+      border-radius: 14px;
+      outline: none;
+      background: #151820;
+      color: #f5f5f5;
+      font-size: 16px;
+    }
+
+    .search-box:focus {
+      border-color: #ff7aa8;
+    }
+
+    .search-box::placeholder {
+      color: #707684;
+    }
+
+    .filter-status {
+      min-height: 22px;
+      margin-bottom: 18px;
       color: #8f96a3;
+      font-size: 14px;
+    }
+
+    .song-header {
+      display: grid;
+      grid-template-columns:
+        minmax(260px, 2fr)
+        130px
+        180px
+        150px;
+      gap: 20px;
+      padding: 0 20px 10px;
+      color: #7f8796;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .song-header div:nth-child(2),
+    .song-header div:nth-child(3) {
       text-align: center;
+    }
+
+    .song-header div:nth-child(4) {
+      text-align: right;
+    }
+
+    .results {
+      display: grid;
+      gap: 12px;
+    }
+
+    .song-card {
+      display: grid;
+      grid-template-columns:
+        minmax(260px, 2fr)
+        130px
+        180px
+        150px;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 20px;
+      background: #151820;
+      border: 1px solid #242936;
+      border-radius: 16px;
+      transition: 0.2s ease;
+    }
+
+    .song-card:hover {
+      border-color: #343946;
+      transform: translateY(-2px);
+    }
+
+    .song-name {
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .song-original {
+      margin-top: 5px;
+      color: #9298a5;
+      font-size: 13px;
+    }
+
+    .meta {
+      color: #c8ccd5;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .time {
+      color: #ff9bbc;
+      font-weight: 700;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .time a {
+      display: inline-block;
+      margin: 2px 0;
+    }
+
+    .time a:hover {
+      color: #ff7aa8;
+    }
+
+    .demo-tag {
+      display: inline-block;
+      margin-left: 7px;
+      padding: 4px 7px;
+      border-radius: 6px;
+      background: #512537;
+      color: #ffd1df;
+      font-size: 11px;
+    }
+
+    .empty {
+      padding: 30px;
+      text-align: center;
+      color: #888f9c;
+      background: #151820;
+      border: 1px solid #242936;
+      border-radius: 16px;
     }
 
     /* MOBILE */
     @media (max-width: 760px) {
-      .nav {
-        align-items: flex-start;
-        gap: 18px;
-      }
-
       .nav-links {
         gap: 12px;
         flex-wrap: wrap;
@@ -265,11 +397,11 @@
         grid-template-columns: 1fr;
       }
 
-      .search-header {
+      .section-title {
         display: block;
       }
 
-      .search-hint {
+      .section-title p {
         margin-top: 8px;
       }
 
@@ -285,8 +417,21 @@
         padding: 24px;
       }
 
-      .stream-title {
-        font-size: 21px;
+      .search-row {
+        flex-direction: column;
+      }
+
+      .song-header {
+        display: none;
+      }
+
+      .song-card {
+        grid-template-columns: 1fr;
+      }
+
+      .meta,
+      .time {
+        text-align: left;
       }
     }
   </style>
@@ -298,14 +443,14 @@
     <div class="nav">
 
       <div class="logo">
-        TW <span>VTuber Music</span>
+        VTuber <span>Archive</span>
       </div>
 
       <nav class="nav-links">
         <a href="index.html">HOME</a>
         <a href="profile.html">PROFILE</a>
         <a href="streams.html" class="active">STREAMS</a>
-        <a href="index.html">MERCH</a>
+        <a href="index.html#merch">MERCH</a>
         <a href="index.html#about">ABOUT</a>
       </nav>
 
@@ -325,7 +470,7 @@
 
       <p class="streams-intro">
         收錄剎那 SETSUNA 的歌回與演唱直播紀錄。<br>
-        可依日期或歌回名稱搜尋，後續將持續補充各場演唱紀錄與 YouTube 時間軸。
+        可搜尋歌曲、原唱、日期與歌回名稱，並直接跳轉至 YouTube 演唱時間軸。
       </p>
 
     </section>
@@ -334,207 +479,681 @@
     <section class="stream-stats">
 
       <div class="stat-card">
-        <div class="stat-number">3</div>
+        <div class="stat-number" id="streamCount">—</div>
         <div class="stat-label">收錄歌回</div>
       </div>
 
       <div class="stat-card">
-        <div class="stat-number">27</div>
+        <div class="stat-number" id="performanceCount">—</div>
         <div class="stat-label">演唱紀錄</div>
       </div>
 
       <div class="stat-card">
-        <div class="stat-number">27</div>
+        <div class="stat-number" id="uniqueSongCount">—</div>
         <div class="stat-label">不重複歌曲</div>
       </div>
 
     </section>
 
-    <!-- SEARCH -->
-    <section class="search-section">
+    <!-- STREAM INDEX -->
+    <section>
 
-      <div class="search-header">
-        <h2>歌回紀錄</h2>
-        <div class="search-hint">搜尋日期或歌回名稱</div>
+      <div class="section-title">
+        <h2>歌回場次</h2>
+        <p>一場直播一筆索引</p>
       </div>
 
-      <input
-        id="streamSearch"
-        class="stream-search"
-        type="search"
-        placeholder="例如：動漫、伴睡、2026-09-25..."
-      >
+      <div class="stream-list">
+
+        <article class="stream-card" data-stream-card="moon">
+
+          <a
+            class="thumbnail-link"
+            href="https://www.youtube.com/watch?v=0Y07GpGMNdM"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="stream-thumbnail"
+              src="https://img.youtube.com/vi/0Y07GpGMNdM/hqdefault.jpg"
+              alt="月色下的伴睡歌回"
+            >
+          </a>
+
+          <div class="stream-info">
+
+            <div class="stream-date">2026／09／25</div>
+
+            <h2 class="stream-title">
+              月色下的伴睡歌回🌕💤
+            </h2>
+
+            <div class="stream-count" data-stream-count="moon"></div>
+
+            <div class="stream-actions">
+
+              <a
+                class="stream-link"
+                href="https://www.youtube.com/watch?v=0Y07GpGMNdM"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                前往 YouTube
+              </a>
+
+              <button
+                class="stream-filter-button"
+                type="button"
+                data-stream-filter="moon"
+              >
+                查看歌單
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+        <article class="stream-card" data-stream-card="anime">
+
+          <a
+            class="thumbnail-link"
+            href="https://www.youtube.com/watch?v=-sI3KgHtQF4"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="stream-thumbnail"
+              src="https://img.youtube.com/vi/-sI3KgHtQF4/hqdefault.jpg"
+              alt="動漫歌回"
+            >
+          </a>
+
+          <div class="stream-info">
+
+            <div class="stream-date">2026／09／18</div>
+
+            <h2 class="stream-title">
+              🔥動漫歌回🔥
+            </h2>
+
+            <div class="stream-count" data-stream-count="anime"></div>
+
+            <div class="stream-actions">
+
+              <a
+                class="stream-link"
+                href="https://www.youtube.com/watch?v=-sI3KgHtQF4"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                前往 YouTube
+              </a>
+
+              <button
+                class="stream-filter-button"
+                type="button"
+                data-stream-filter="anime"
+              >
+                查看歌單
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+        <article class="stream-card" data-stream-card="summer">
+
+          <a
+            class="thumbnail-link"
+            href="https://www.youtube.com/watch?v=tIOPmv3lb2E"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="stream-thumbnail"
+              src="https://img.youtube.com/vi/tIOPmv3lb2E/hqdefault.jpg"
+              alt="抓住夏日的尾巴"
+            >
+          </a>
+
+          <div class="stream-info">
+
+            <div class="stream-date">2026／09／13</div>
+
+            <h2 class="stream-title">
+              抓住夏日的尾巴🍹
+            </h2>
+
+            <div class="stream-count" data-stream-count="summer"></div>
+
+            <div class="stream-actions">
+
+              <a
+                class="stream-link"
+                href="https://www.youtube.com/watch?v=tIOPmv3lb2E"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                前往 YouTube
+              </a>
+
+              <button
+                class="stream-filter-button"
+                type="button"
+                data-stream-filter="summer"
+              >
+                查看歌單
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
 
     </section>
 
-    <!-- STREAM LIST -->
-    <section class="stream-list" id="streamList">
+    <!-- SONG ARCHIVE -->
+    <section class="song-archive" id="songs">
 
-      <!-- 2026-09-25 -->
-      <article
-        class="stream-card"
-        data-search="2026-09-25 2026 09 25 月色下的伴睡歌回 伴睡 月色"
-      >
+      <div class="section-title">
+        <h2>歌曲搜尋</h2>
+        <p>搜尋歌名、原唱、日期或歌回</p>
+      </div>
 
-        <a
-          class="thumbnail-link"
-          href="https://www.youtube.com/watch?v=0Y07GpGMNdM"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div class="search-row">
+
+        <input
+          id="searchInput"
+          class="search-box"
+          type="search"
+          placeholder="例如：Fly Me To The Moon、YUI、動漫、2026-09-25..."
         >
-          <img
-            class="stream-thumbnail"
-            src="https://img.youtube.com/vi/0Y07GpGMNdM/hqdefault.jpg"
-            alt="月色下的伴睡歌回"
-          >
-        </a>
 
-        <div class="stream-info">
-
-          <div class="stream-date">
-            2026／09／25
-          </div>
-
-          <h2 class="stream-title">
-            月色下的伴睡歌回🌕💤
-          </h2>
-
-          <div class="stream-actions">
-            <a
-              class="stream-link"
-              href="https://www.youtube.com/watch?v=0Y07GpGMNdM"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              前往 YouTube
-            </a>
-          </div>
-
-        </div>
-
-      </article>
-
-      <!-- 2026-09-18 -->
-      <article
-        class="stream-card"
-        data-search="2026-09-18 2026 09 18 動漫歌回 動漫"
-      >
-
-        <a
-          class="thumbnail-link"
-          href="https://www.youtube.com/watch?v=-sI3KgHtQF4"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          id="resetButton"
+          class="reset-button"
+          type="button"
         >
-          <img
-            class="stream-thumbnail"
-            src="https://img.youtube.com/vi/-sI3KgHtQF4/hqdefault.jpg"
-            alt="動漫歌回"
-          >
-        </a>
+          顯示全部
+        </button>
 
-        <div class="stream-info">
+      </div>
 
-          <div class="stream-date">
-            2026／09／18
-          </div>
+      <div
+        class="filter-status"
+        id="filterStatus"
+      ></div>
 
-          <h2 class="stream-title">
-            🔥動漫歌回🔥
-          </h2>
+      <div class="song-header">
+        <div>歌曲</div>
+        <div>日期</div>
+        <div>歌回</div>
+        <div>播放</div>
+      </div>
 
-          <div class="stream-actions">
-            <a
-              class="stream-link"
-              href="https://www.youtube.com/watch?v=-sI3KgHtQF4"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              前往 YouTube
-            </a>
-          </div>
-
-        </div>
-
-      </article>
-
-      <!-- 2026-09-13 -->
-      <article
-        class="stream-card"
-        data-search="2026-09-13 2026 09 13 抓住夏日的尾巴 夏日"
-      >
-
-        <a
-          class="thumbnail-link"
-          href="https://www.youtube.com/watch?v=tIOPmv3lb2E"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            class="stream-thumbnail"
-            src="https://img.youtube.com/vi/tIOPmv3lb2E/hqdefault.jpg"
-            alt="抓住夏日的尾巴"
-          >
-        </a>
-
-        <div class="stream-info">
-
-          <div class="stream-date">
-            2026／09／13
-          </div>
-
-          <h2 class="stream-title">
-            抓住夏日的尾巴🍹
-          </h2>
-
-          <div class="stream-actions">
-            <a
-              class="stream-link"
-              href="https://www.youtube.com/watch?v=tIOPmv3lb2E"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              前往 YouTube
-            </a>
-          </div>
-
-        </div>
-
-      </article>
+      <div
+        id="songResults"
+        class="results"
+      ></div>
 
     </section>
-
-    <div class="empty-state" id="emptyState">
-      找不到符合條件的歌回。
-    </div>
 
   </main>
 
   <script>
-    const searchInput = document.getElementById("streamSearch");
-    const streamCards = document.querySelectorAll(".stream-card");
-    const emptyState = document.getElementById("emptyState");
 
-    searchInput.addEventListener("input", function () {
-      const keyword = this.value.trim().toLowerCase();
-      let visibleCount = 0;
-
-      streamCards.forEach(function (card) {
-        const searchText = card.dataset.search.toLowerCase();
-        const isMatch = searchText.includes(keyword);
-
-        card.style.display = isMatch ? "grid" : "none";
-
-        if (isMatch) {
-          visibleCount++;
+    const streams = {
+    
+        moon: {
+          date: "2026-09-25",
+          shortTitle: "月色下的伴睡歌回🌕💤",
+          title: "〖 粿粿唱 〗月色下的伴睡歌回🌕💤溫柔的歌聲伴你入睡🫂｜降落歡迎｜初見歡迎｜",
+          videoId: "0Y07GpGMNdM"
+        },
+    
+        anime: {
+          date: "2026-09-18",
+          shortTitle: "🔥動漫歌回🔥",
+          title: "〖 粿粿唱 〗🔥動漫歌回🔥我的木吉他就是我的專武✨｜降落歡迎｜初見歡迎｜",
+          videoId: "-sI3KgHtQF4"
+        },
+    
+        summer: {
+          date: "2026-09-13",
+          shortTitle: "抓住夏日的尾巴🍹",
+          title: "〖 粿粿唱 〗最近開始變涼了⛅一起來抓住夏日的尾巴🍹｜降落歡迎｜初見歡迎｜",
+          videoId: "tIOPmv3lb2E"
         }
+    
+      };
+
+    const songs = [
+    
+        // ===== 2026/09/25 =====
+    
+        {
+          song: "Fly Me To The Moon",
+          original: "Frank Sinatra",
+          streamId: "moon",
+          parts: [
+            { time: "00:16:14", seconds: 974 }
+          ]
+        },
+    
+        {
+          song: "城裡的月光",
+          original: "許美靜",
+          streamId: "moon",
+          parts: [
+            { time: "00:23:00", seconds: 1380 }
+          ]
+        },
+    
+        {
+          song: "三日月",
+          original: "絢香",
+          streamId: "moon",
+          parts: [
+            { time: "00:31:06", seconds: 1866 }
+          ]
+        },
+    
+        {
+          song: "旅行的意義",
+          original: "陳綺貞",
+          streamId: "moon",
+          parts: [
+            { time: "00:42:06", seconds: 2526 }
+          ]
+        },
+    
+        {
+          song: "月牙灣",
+          original: "F.I.R.",
+          streamId: "moon",
+          parts: [
+            { time: "00:51:11", seconds: 3071 }
+          ]
+        },
+    
+        {
+          song: "Autumn Leaves",
+          original: "Nat King Cole",
+          streamId: "moon",
+          parts: [
+            { time: "01:02:17", seconds: 3737 }
+          ]
+        },
+    
+        {
+          song: "葉子",
+          original: "阿桑",
+          streamId: "moon",
+          parts: [
+            { time: "01:10:54", seconds: 4254 }
+          ]
+        },
+    
+        {
+          song: "月亮代表我的心",
+          original: "鄧麗君",
+          streamId: "moon",
+          parts: [
+            { time: "01:25:36", seconds: 5136 }
+          ]
+        },
+    
+        {
+          song: "晚餐歌",
+          original: "tuki.",
+          streamId: "moon",
+          parts: [
+            { time: "01:37:24", seconds: 5844 }
+          ]
+        },
+    
+    
+        // ===== 2026/09/18 =====
+    
+        {
+          song: "おはよう。",
+          original: "Keno",
+          streamId: "anime",
+          parts: [
+            { time: "00:21:43", seconds: 1303 }
+          ]
+        },
+    
+        {
+          song: "Rolling star",
+          original: "YUI",
+          streamId: "anime",
+          parts: [
+            { time: "00:29:37", seconds: 1777 }
+          ]
+        },
+    
+        {
+          song: "LIFE",
+          original: "YUI",
+          streamId: "anime",
+          parts: [
+            { label: "P1", time: "00:36:07", seconds: 2167 },
+            { label: "P2", time: "00:42:02", seconds: 2522 }
+          ]
+        },
+    
+        {
+          song: "ブルーバード",
+          original: "いきものがかり",
+          streamId: "anime",
+          parts: [
+            { time: "00:50:43", seconds: 3043 }
+          ]
+        },
+    
+        {
+          song: "めざせポケモンマスター",
+          original: "松本梨香",
+          streamId: "anime",
+          note: "練習",
+          parts: [
+            { time: "01:11:04", seconds: 4264 }
+          ]
+        },
+    
+        {
+          song: "シルエット",
+          original: "KANA-BOON",
+          streamId: "anime",
+          parts: [
+            { time: "01:15:12", seconds: 4512 }
+          ]
+        },
+    
+        {
+          song: "サムライハート",
+          original: "SPYAIR",
+          streamId: "anime",
+          parts: [
+            { label: "P1", time: "01:33:48", seconds: 5628 },
+            { label: "P2", time: "02:12:54", seconds: 7974 }
+          ]
+        },
+    
+        {
+          song: "HANABI",
+          original: "いきものがかり",
+          streamId: "anime",
+          parts: [
+            { time: "01:42:52", seconds: 6172 }
+          ]
+        },
+    
+        {
+          song: "Home Sweet Home",
+          original: "YUKI",
+          streamId: "anime",
+          parts: [
+            { time: "01:50:31", seconds: 6631 }
+          ]
+        },
+    
+        {
+          song: "Let it Out",
+          original: "福原美穗",
+          streamId: "anime",
+          parts: [
+            { time: "01:57:28", seconds: 7048 }
+          ]
+        },
+    
+        {
+          song: "Butter-Fly",
+          original: "和田光司",
+          streamId: "anime",
+          parts: [
+            { time: "02:05:12", seconds: 7512 }
+          ]
+        },
+    
+    
+        // ===== 2026/09/13 =====
+    
+        {
+          song: "晴天",
+          original: "周杰倫",
+          streamId: "summer",
+          parts: [
+            { time: "00:26:47", seconds: 1607 }
+          ]
+        },
+    
+        {
+          song: "想和你看五月的晚霞",
+          original: "陳華",
+          streamId: "summer",
+          parts: [
+            { time: "00:33:30", seconds: 2010 }
+          ]
+        },
+    
+        {
+          song: "少女レイ",
+          original: "みきとP feat. 初音ミク",
+          streamId: "summer",
+          parts: [
+            { label: "P1", time: "00:40:37", seconds: 2437 },
+            { label: "P2", time: "00:48:20", seconds: 2900 }
+          ]
+        },
+    
+        {
+          song: "國境之南",
+          original: "范逸臣",
+          streamId: "summer",
+          parts: [
+            { time: "00:58:58", seconds: 3538 }
+          ]
+        },
+    
+        {
+          song: "変わらないもの",
+          original: "奥華子",
+          streamId: "summer",
+          parts: [
+            { time: "01:03:10", seconds: 3790 }
+          ]
+        },
+    
+        {
+          song: "夏霞",
+          original: "あたらよ",
+          streamId: "summer",
+          note: "ft. 霸丸",
+          parts: [
+            { time: "01:21:02", seconds: 4862 }
+          ]
+        },
+    
+        {
+          song: "secret base ～君がくれたもの～",
+          original: "ZONE",
+          streamId: "summer",
+          parts: [
+            { time: "01:33:28", seconds: 5608 }
+          ]
+        }
+    
+      ];
+
+    const searchInput = document.getElementById("searchInput");
+    const songResults = document.getElementById("songResults");
+    const filterStatus = document.getElementById("filterStatus");
+    const resetButton = document.getElementById("resetButton");
+    const streamFilterButtons = document.querySelectorAll("[data-stream-filter]");
+
+    let activeStreamFilter = null;
+
+    // =========================
+    // 自動統計
+    // =========================
+
+    const streamCount = Object.keys(streams).length;
+    const performanceCount = songs.length;
+
+    const uniqueSongCount = new Set(
+      songs.map(item =>
+        item.song.toLowerCase() + "|" + item.original.toLowerCase()
+      )
+    ).size;
+
+    document.getElementById("streamCount").textContent = streamCount;
+    document.getElementById("performanceCount").textContent = performanceCount;
+    document.getElementById("uniqueSongCount").textContent = uniqueSongCount;
+
+    Object.keys(streams).forEach(streamId => {
+      const count = songs.filter(item => item.streamId === streamId).length;
+
+      const countElement = document.querySelector(
+        `[data-stream-count="${streamId}"]`
+      );
+
+      if (countElement) {
+        countElement.textContent = `${count} 首演唱紀錄`;
+      }
+    });
+
+    // =========================
+    // 搜尋與顯示
+    // =========================
+
+    function renderSongs() {
+      const search = searchInput.value.trim().toLowerCase();
+
+      const filtered = songs.filter(item => {
+        const stream = streams[item.streamId];
+
+        const matchesKeyword = (
+          item.song.toLowerCase().includes(search) ||
+          item.original.toLowerCase().includes(search) ||
+          stream.shortTitle.toLowerCase().includes(search) ||
+          stream.title.toLowerCase().includes(search) ||
+          stream.date.includes(search)
+        );
+
+        const matchesStream = activeStreamFilter
+          ? item.streamId === activeStreamFilter
+          : true;
+
+        return matchesKeyword && matchesStream;
       });
 
-      emptyState.style.display =
-        visibleCount === 0 ? "block" : "none";
+      if (activeStreamFilter) {
+        filterStatus.textContent =
+          `目前顯示：${streams[activeStreamFilter].shortTitle}｜${filtered.length} 筆`;
+      } else {
+        filterStatus.textContent =
+          `目前顯示全部演唱紀錄｜${filtered.length} 筆`;
+      }
+
+      if (filtered.length === 0) {
+        songResults.innerHTML =
+          '<div class="empty">找不到符合的演唱紀錄。</div>';
+        return;
+      }
+
+      songResults.innerHTML = filtered.map(item => {
+        const stream = streams[item.streamId];
+
+        const timeLinks = item.parts.map(part => {
+          const label = part.label
+            ? part.label + " "
+            : "";
+
+          return `
+            <a
+              href="https://www.youtube.com/watch?v=${stream.videoId}&t=${part.seconds}s"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ${label}${part.time} ▶
+            </a>
+          `;
+        }).join("<br>");
+
+        const note = item.note
+          ? `<span class="demo-tag">${item.note}</span>`
+          : "";
+
+        return `
+          <div class="song-card">
+
+            <div>
+
+              <div class="song-name">
+                ${item.song}
+                ${note}
+              </div>
+
+              <div class="song-original">
+                原唱：${item.original}
+              </div>
+
+            </div>
+
+            <div class="meta">
+              ${stream.date}
+            </div>
+
+            <div
+              class="meta"
+              title="${stream.title}"
+            >
+              ${stream.shortTitle}
+            </div>
+
+            <div class="time">
+              ${timeLinks}
+            </div>
+
+          </div>
+        `;
+      }).join("");
+    }
+
+    searchInput.addEventListener("input", function () {
+      renderSongs();
     });
+
+    streamFilterButtons.forEach(button => {
+      button.addEventListener("click", function () {
+        activeStreamFilter = this.dataset.streamFilter;
+        searchInput.value = "";
+        renderSongs();
+
+        document.getElementById("songs").scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    });
+
+    resetButton.addEventListener("click", function () {
+      activeStreamFilter = null;
+      searchInput.value = "";
+      renderSongs();
+    });
+
+    renderSongs();
+
   </script>
 
 </body>
-
 </html>
