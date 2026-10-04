@@ -1,1 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>STREAMS｜剎那 SETSUNA</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      background: #0d0f14;
+      color: #f5f5f5;
+    }
+
+    header {
+      border-bottom: 1px solid #242833;
+      background: #0d0f14;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: #c8ccd5;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: #ff7aa8;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 24px;
+    }
+
+    /* PAGE HERO */
+    .streams-hero {
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      margin: 0 0 12px;
+      color: #ff7aa8;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+    }
+
+    .streams-hero h1 {
+      margin: 0;
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 1;
+    }
+
+    .streams-hero h1 span {
+      color: #ff7aa8;
+    }
+
+    .streams-intro {
+      margin: 24px 0 0;
+      max-width: 700px;
+      color: #c5cad3;
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    /* STREAM LIST */
+    .stream-list {
+      display: grid;
+      gap: 28px;
+    }
+
+    .stream-card {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      overflow: hidden;
+      background: #151820;
+      border: 1px solid #242936;
+      border-radius: 20px;
+    }
+
+    .stream-thumbnail {
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .stream-info {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stream-date {
+      margin-bottom: 12px;
+      color: #ff7aa8;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .stream-title {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.5;
+    }
+
+    .stream-actions {
+      margin-top: 24px;
+    }
+
+    .stream-link {
+      display: inline-block;
+      padding: 11px 20px;
+      border: 1px solid #ff7aa8;
+      border-radius: 999px;
+      color: #ff7aa8;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .stream-link:hover {
+      background: #ff7aa8;
+      color: #0d0f14;
+    }
+
+    /* MOBILE */
+    @media (max-width: 760px) {
+      .nav {
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      main {
+        padding: 50px 20px;
+      }
+
+      .stream-card {
+        grid-template-columns: 1fr;
+      }
+
+      .stream-thumbnail {
+        min-height: auto;
+      }
+
+      .stream-info {
+        padding: 24px;
+      }
+
+      .stream-title {
+        font-size: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav">
+
+      <div class="logo">
+        TW <span>VTuber Music</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="profile.html">PROFILE</a>
+        <a href="streams.html" class="active">STREAMS</a>
+        <a href="index.html">MERCH</a>
+        <a href="index.html#about">ABOUT</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- STREAMS HERO -->
+    <section class="streams-hero">
+
+      <p class="section-label">STREAM ARCHIVE</p>
+
+      <h1>
+        Singing <span>Streams</span>
+      </h1>
+
+      <p class="streams-intro">
+        收錄剎那 SETSUNA 的歌回與演唱直播紀錄。<br>
+        後續將整理各場歌單、演唱時間軸與歌曲搜尋功能。
+      </p>
+
+    </section>
+
+    <!-- STREAM LIST -->
+    <section class="stream-list">
+
+      <!-- 2026-09-25 -->
+      <article class="stream-card">
+
+        <img
+          class="stream-thumbnail"
+          src="https://img.youtube.com/vi/0Y07GpGMNdM/hqdefault.jpg"
+          alt="月色下的伴睡歌回"
+        >
+
+        <div class="stream-info">
+
+          <div class="stream-date">
+            2026／09／25
+          </div>
+
+          <h2 class="stream-title">
+            月色下的伴睡歌回🌕💤
+          </h2>
+
+          <div class="stream-actions">
+            <a
+              class="stream-link"
+              href="https://www.youtube.com/watch?v=0Y07GpGMNdM"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              前往 YouTube
+            </a>
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- 2026-09-18 -->
+      <article class="stream-card">
+
+        <img
+          class="stream-thumbnail"
+          src="https://img.youtube.com/vi/-sI3KgHtQF4/hqdefault.jpg"
+          alt="動漫歌回"
+        >
+
+        <div class="stream-info">
+
+          <div class="stream-date">
+            2026／09／18
+          </div>
+
+          <h2 class="stream-title">
+            🔥動漫歌回🔥
+          </h2>
+
+          <div class="stream-actions">
+            <a
+              class="stream-link"
+              href="https://www.youtube.com/watch?v=-sI3KgHtQF4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              前往 YouTube
+            </a>
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- 2026-09-13 -->
+      <article class="stream-card">
+
+        <img
+          class="stream-thumbnail"
+          src="https://img.youtube.com/vi/tIOPmv3lb2E/hqdefault.jpg"
+          alt="抓住夏日的尾巴"
+        >
+
+        <div class="stream-info">
+
+          <div class="stream-date">
+            2026／09／13
+          </div>
+
+          <h2 class="stream-title">
+            抓住夏日的尾巴🍹
+          </h2>
+
+          <div class="stream-actions">
+            <a
+              class="stream-link"
+              href="https://www.youtube.com/watch?v=tIOPmv3lb2E"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              前往 YouTube
+            </a>
+          </div>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+</body>
+
+</html>
