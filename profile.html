@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +13,10 @@
   >
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, "Noto Sans TC", sans-serif;
@@ -21,30 +24,44 @@
       color: #f5f5f5;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 15, 20, 0.95);
       border-bottom: 1px solid #242833;
-      background: #0d0f14;
+      backdrop-filter: blur(10px);
     }
 
     .nav {
+      width: 100%;
       max-width: 1200px;
-      margin: auto;
+      margin: 0 auto;
       padding: 18px 24px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .logo {
-      font-weight: bold;
+      font-size: 20px;
+      font-weight: 700;
+      white-space: nowrap;
     }
-    
+
     .logo span {
       color: #ff7aa8;
     }
-    
+
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 24px;
     }
 
@@ -52,6 +69,7 @@
       color: #c8ccd5;
       text-decoration: none;
       font-size: 14px;
+      font-weight: 500;
     }
 
     .nav-links a:hover,
@@ -60,16 +78,10 @@
     }
 
     main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 80px 24px;
-    }
-
-    .profile-card {
-      overflow: visible;
-      background: transparent;
-      border: none;
-      border-radius: 0;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 100px;
     }
 
     /* PROFILE HERO */
@@ -87,7 +99,6 @@
 
     .profile-hero h1 span {
       color: #ff7aa8;
-      font-size: inherit;
     }
 
     .profile-hashtag {
@@ -109,7 +120,7 @@
     /* PROFILE CONTENT */
     .profile-content {
       padding: 56px 0 0;
-     }
+    }
 
     .profile-grid {
       display: grid;
@@ -139,10 +150,10 @@
 
     /* BASIC PROFILE */
     .info-box {
+      padding: 26px;
       background: #11141b;
       border: 1px solid #242936;
       border-radius: 16px;
-      padding: 26px;
     }
 
     .info-row {
@@ -177,7 +188,6 @@
 
     .info-value a {
       color: #c5cad3;
-      text-decoration: none;
     }
 
     .info-value a:hover {
@@ -196,18 +206,13 @@
     .platform-links a {
       width: 88px;
       height: 88px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       border: 1px solid #4a4f5c;
       border-radius: 50%;
-
       color: #c5cad3;
       font-size: 36px;
-      text-decoration: none;
-
       transition: 0.2s ease;
     }
 
@@ -242,7 +247,7 @@
       font-size: 17px;
       font-weight: 600;
     }
-    
+
     /* MOBILE */
     @media (max-width: 760px) {
       .nav {
@@ -257,11 +262,11 @@
       }
 
       main {
-        padding: 50px 20px;
+        padding: 50px 20px 70px;
       }
 
       .profile-hero {
-        padding: 40px 28px;
+        padding-bottom: 40px;
       }
 
       .profile-intro {
@@ -269,17 +274,35 @@
       }
 
       .profile-content {
-        padding: 32px 28px;
+        padding-top: 40px;
       }
 
       .profile-grid {
-        grid-template-columns: 1fr;
         gap: 56px;
       }
 
       .info-row {
         grid-template-columns: 1fr;
         gap: 6px;
+      }
+
+      .info-title {
+        white-space: normal;
+      }
+
+      .platform-links {
+        gap: 14px;
+      }
+
+      .platform-links a {
+        width: 68px;
+        height: 68px;
+        font-size: 28px;
+      }
+
+      .milestone-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
       }
     }
   </style>
@@ -288,302 +311,276 @@
 <body>
 
   <header>
-  <div class="nav">
+    <div class="nav">
 
-    <div class="logo">
-      VTuber <span>Archive</span>
+      <div class="logo">
+        VTuber <span>Archive</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="profile.html" class="active">PROFILE</a>
+        <a href="streams.html">STREAMS</a>
+        <a href="index.html#merch">MERCH</a>
+        <a href="index.html#about">ABOUT</a>
+      </nav>
+
     </div>
-
-    <nav class="nav-links">
-      <a href="index.html">HOME</a>
-      <a href="profile.html" class="active">PROFILE</a>
-      <a href="streams.html">STREAMS</a>
-      <a href="index.html#merch">MERCH</a>
-      <a href="index.html#about">ABOUT</a>
-    </nav>
-
-  </div>
-</header>
+  </header>
 
   <main>
 
-    <div class="profile-card">
+    <!-- PROFILE HERO -->
+    <section class="profile-hero">
 
-      <!-- PROFILE HERO -->
-      <section class="profile-hero">
+      <h1>
+        剎那 <span>SETSUNA</span>
+      </h1>
 
-        <h1>
-          剎那 <span>SETSUNA</span>
-        </h1>
+      <p class="profile-hashtag">
+        #魂を歌う剎那
+      </p>
 
-        <p class="profile-hashtag">
-          #魂を歌う剎那
-        </p>
+      <p class="profile-intro">
+        魂を歌声に乗せる Vsinger。<br>
+        七號空間站的站長，以吉他自彈自唱與音樂活動為主。
+      </p>
 
-        <p class="profile-intro">
-          魂を歌声に乗せる Vsinger。<br>
-          七號空間站的站長，以吉他自彈自唱與音樂活動為主。
-        </p>
+    </section>
 
-      </section>
+    <div class="profile-content">
+      <div class="profile-grid">
 
-      <div class="profile-content">
+        <!-- ABOUT -->
+        <section class="profile-section">
 
-        <div class="profile-grid">
+          <p class="section-label">ABOUT</p>
+          <h2>關於剎那</h2>
 
-          <!-- ABOUT -->
-          <section class="profile-section">
+          <p>
+            我是七號空間站的站長「剎那」！<br>
+            你也可以叫我「站長」、「那那」或是「碗粿」，<br>
+            是個以吉他自彈自唱為主の主bo唷🎸
+          </p>
 
-            <p class="section-label">ABOUT</p>
+        </section>
 
-            <h2>關於剎那</h2>
+        <!-- ORIGIN -->
+        <section class="profile-section">
 
-            <p>
-              我是七號空間站的站長「剎那」！<br>
-              你也可以叫我「站長」、「那那」或是「碗粿」，<br>
-              是個以吉他自彈自唱為主の主bo唷🎸
-            </p>
+          <p class="section-label">ORIGIN</p>
+          <h2>為什麼叫「碗粿」？</h2>
 
-          </section>
+          <p>
+            初次直播使用的初號機長得很像碗粿，<br>
+            所以碗粿成為了代名詞。<br>
+            因此我只是長得很像碗粿但不是碗粿的主播✨
+          </p>
 
-          <!-- ORIGIN -->
-          <section class="profile-section">
+        </section>
 
-            <p class="section-label">ORIGIN</p>
+        <!-- BASIC PROFILE -->
+        <section class="profile-section">
 
-            <h2>為什麼叫「碗粿」？</h2>
+          <p class="section-label">BASIC PROFILE</p>
+          <h2>基本資料</h2>
 
-            <p>
-              初次直播使用的初號機長得很像碗粿，<br>
-              所以碗粿成為了代名詞。<br>
-              因此我只是長得很像碗粿但不是碗粿的主播✨
-            </p>
+          <div class="info-box">
 
-          </section>
-
-          <!-- BASIC PROFILE -->
-          <section class="profile-section">
-
-            <p class="section-label">BASIC PROFILE</p>
-
-            <h2>基本資料</h2>
-
-            <div class="info-box">
-
-              <div class="info-row">
-                <div class="info-title">暱稱</div>
-                <div class="info-value">
-                  站長／那那／碗粿
-                </div>
-              </div>
-
-              <div class="info-row">
-                <div class="info-title">身高</div>
-                <div class="info-value">
-                  待補
-                </div>
-              </div>
-
-              <div class="info-row">
-                <div class="info-title">生日</div>
-                <div class="info-value">
-                  8／20
-                </div>
-              </div>
-
-              <div class="info-row">
-                <div class="info-title">DESIGN</div>
-
-                <div class="info-value">
-                  皮蛋沒蛋 ／
-                  <a
-                    href="https://x.com/pidanmeida28101"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    @pidanmeida28101
-                  </a>
-                </div>
-              </div>
-
-              <div class="info-row">
-                <div class="info-title">ART DIRECTOR</div>
-
-                <div class="info-value">
-                  望結 ／
-                  <a
-                    href="https://x.com/miyusama0214"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    @miyusama0214
-                  </a>
-                </div>
-              </div>
-
-              <div class="info-row">
-                <div class="info-title">Live2D</div>
-
-                <div class="info-value">
-                  老安 ／
-                  <a
-                    href="https://x.com/Krayv_An"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    @Krayv_An
-                  </a>
-                </div>
-              </div>
-
-              <div class="info-row">
-                <div class="info-title">粉絲名</div>
-                <div class="info-value">
-                  粉粿
-                </div>
-              </div>
-
+            <div class="info-row">
+              <div class="info-title">暱稱</div>
+              <div class="info-value">站長／那那／碗粿</div>
             </div>
 
-          </section>
-
-          <!-- OFFICIAL LINKS -->
-          <section class="profile-section">
-
-            <p class="section-label">OFFICIAL LINKS</p>
-
-            <h2>官方連結</h2>
-
-            <div class="platform-links">
-
-              <!-- YouTube -->
-              <a
-                href="https://www.youtube.com/@setsuna_wague"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                title="YouTube"
-              >
-                <i class="fa-brands fa-youtube"></i>
-              </a>
-
-              <!-- Twitch -->
-              <a
-                href="https://www.twitch.tv/setsuna_wague"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitch"
-                title="Twitch"
-              >
-                <i class="fa-brands fa-twitch"></i>
-              </a>
-
-              <!-- X -->
-              <a
-                href="https://x.com/SETSUNA_VII"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="X"
-                title="X"
-              >
-                <i class="fa-brands fa-x-twitter"></i>
-              </a>
-
-              <!-- Discord -->
-              <a
-                href="https://discord.com/invite/Y9v7zZbhNj"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Discord"
-                title="Discord"
-              >
-                <i class="fa-brands fa-discord"></i>
-              </a>
-
+            <div class="info-row">
+              <div class="info-title">身高</div>
+              <div class="info-value">待補</div>
             </div>
 
-          </section>
+            <div class="info-row">
+              <div class="info-title">生日</div>
+              <div class="info-value">8／20</div>
+            </div>
 
-          <!-- SELECTED MILESTONES -->
-<section class="profile-section">
+            <div class="info-row">
+              <div class="info-title">DESIGN</div>
+              <div class="info-value">
+                皮蛋沒蛋 ／
+                <a
+                  href="https://x.com/pidanmeida28101"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @pidanmeida28101
+                </a>
+              </div>
+            </div>
 
-  <p class="section-label">SELECTED MILESTONES</p>
-  <h2>重要里程碑</h2>
+            <div class="info-row">
+              <div class="info-title">ART DIRECTOR</div>
+              <div class="info-value">
+                望結 ／
+                <a
+                  href="https://x.com/miyusama0214"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @miyusama0214
+                </a>
+              </div>
+            </div>
 
-  <div class="milestone-list">
+            <div class="info-row">
+              <div class="info-title">Live2D</div>
+              <div class="info-value">
+                老安 ／
+                <a
+                  href="https://x.com/Krayv_An"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @Krayv_An
+                </a>
+              </div>
+            </div>
 
-    <div class="milestone-item">
-      <div class="milestone-date">2023／10／21</div>
-      <div class="milestone-text">初配信</div>
-    </div>
+            <div class="info-row">
+              <div class="info-title">粉絲名</div>
+              <div class="info-value">粉粿</div>
+            </div>
 
-    <div class="milestone-item">
-      <div class="milestone-date">2024／03／27</div>
-      <div class="milestone-text">二號機亮相</div>
-    </div>
+          </div>
 
-    <div class="milestone-item">
-      <div class="milestone-date">2024／06／09</div>
-      <div class="milestone-text">重大告知</div>
-    </div>
+        </section>
 
-    <div class="milestone-item">
-      <div class="milestone-date">2024／06／15</div>
-      <div class="milestone-text">三號機發表大會</div>
-    </div>
+        <!-- OFFICIAL LINKS -->
+        <section class="profile-section">
 
-    <div class="milestone-item">
-      <div class="milestone-date">2024／09 下旬</div>
-      <div class="milestone-text">活動休止／進入空間站休眠艙</div>
-    </div>
+          <p class="section-label">OFFICIAL LINKS</p>
+          <h2>官方連結</h2>
 
-    <div class="milestone-item">
-      <div class="milestone-date">2025／04／22</div>
-      <div class="milestone-text">新 YouTube 頻道開設／公開</div>
-    </div>
+          <div class="platform-links">
 
-    <div class="milestone-item">
-      <div class="milestone-date">2025／10／09</div>
-      <div class="milestone-text">新 YouTube 頻道達成 500 訂閱</div>
-    </div>
+            <a
+              href="https://www.youtube.com/@setsuna_wague"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              title="YouTube"
+            >
+              <i class="fa-brands fa-youtube"></i>
+            </a>
 
-    <div class="milestone-item">
-      <div class="milestone-date">2025／11／01</div>
-      <div class="milestone-text">新頻道首支 Cover〈ビビデバ〉公開</div>
-    </div>
+            <a
+              href="https://www.twitch.tv/setsuna_wague"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitch"
+              title="Twitch"
+            >
+              <i class="fa-brands fa-twitch"></i>
+            </a>
 
-    <div class="milestone-item">
-      <div class="milestone-date">2025／11／08</div>
-      <div class="milestone-text">於新頻道正式回歸配信</div>
-    </div>
+            <a
+              href="https://x.com/SETSUNA_VII"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X"
+              title="X"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
 
-    <div class="milestone-item">
-      <div class="milestone-date">2025／12／21</div>
-      <div class="milestone-text">新 YouTube 頻道達成 1,000 訂閱</div>
-    </div>
+            <a
+              href="https://discord.com/invite/Y9v7zZbhNj"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Discord"
+              title="Discord"
+            >
+              <i class="fa-brands fa-discord"></i>
+            </a>
 
-    <div class="milestone-item">
-      <div class="milestone-date">2026／02／02</div>
-      <div class="milestone-text">新 YouTube 頻道收益化</div>
-    </div>
+          </div>
 
-    <div class="milestone-item">
-      <div class="milestone-date">2026／07／16</div>
-      <div class="milestone-text">新 YouTube 頻道達成 2,000 訂閱</div>
-    </div>
+        </section>
 
-  </div>
+        <!-- SELECTED MILESTONES -->
+        <section class="profile-section">
 
-</section>
-          
-        </div>
+          <p class="section-label">SELECTED MILESTONES</p>
+          <h2>重要里程碑</h2>
+
+          <div class="milestone-list">
+
+            <div class="milestone-item">
+              <div class="milestone-date">2023／10／21</div>
+              <div class="milestone-text">初配信</div>
+            </div>
+
+            <div class="milestone-item">
+              <div class="milestone-date">2024／03／27</div>
+              <div class="milestone-text">二號機亮相</div>
+            </div>
+
+            <div class="milestone-item">
+              <div class="milestone-date">2024／06／09</div>
+              <div class="milestone-text">重大告知</div>
+            </div>
+
+            <div class="milestone-item">
+              <div class="milestone-date">2024／06／15</div>
+              <div class="milestone-text">三號機發表大會</div>
+            </div>
+
+            <div class="milestone-item">
+              <div class="milestone-date">2024／09 下旬</div>
+              <div class="milestone-text">活動休止／進入空間站休眠艙</div>
+            </div>
+
+            <div class="milestone-item">
+              <div class="milestone-date">2025／04／22</div>
+              <div class="milestone-text">新 YouTube 頻道開設／公開</div>
+            </div>
+
+            <div class="milestone-item">
+              <div class="milestone-date">2025／10／09</div>
+              <div class="milestone-text">新 YouTube 頻道達成 500 訂閱</div>
+            </div>
+
+            <div class="milestone-item">
+              <div class="milestone-date">2025／11／01</div>
+              <div class="milestone-text">新頻道首支 Cover〈ビビデバ〉公開</div>
+            </div>
+
+            <div class="milestone-item">
+              <div class="milestone-date">2025／11／08</div>
+              <div class="milestone-text">於新頻道正式回歸配信</div>
+            </div>
+
+            <div class="milestone-item">
+              <div class="milestone-date">2025／12／21</div>
+              <div class="milestone-text">新 YouTube 頻道達成 1,000 訂閱</div>
+            </div>
+
+            <div class="milestone-item">
+              <div class="milestone-date">2026／02／02</div>
+              <div class="milestone-text">新 YouTube 頻道收益化</div>
+            </div>
+
+            <div class="milestone-item">
+              <div class="milestone-date">2026／07／16</div>
+              <div class="milestone-text">新 YouTube 頻道達成 2,000 訂閱</div>
+            </div>
+
+          </div>
+
+        </section>
 
       </div>
-
     </div>
 
   </main>
 
 </body>
-
 </html>
